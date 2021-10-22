@@ -1,5 +1,5 @@
-from Domain.Cheltuiala import creeaza_cheltuiala
-from Logic.CRUD import create
+from Domain.Cheltuiala import creeaza_cheltuiala, get_nr_apartament
+from Logic.CRUD import create, read, update, delete
 
 
 def get_dat3():
@@ -19,4 +19,37 @@ def test_create():
     assert new_cheltuiala in new_lst_cheltuieli
 
 
-test_create()
+def test_read():
+    lst_cheltuieli = get_dat3()
+    cheltuiala = lst_cheltuieli[2]
+
+    assert read(lst_cheltuieli, get_nr_apartament(cheltuiala)) == cheltuiala
+    assert read(lst_cheltuieli, None) == lst_cheltuieli
+
+
+def test_update():
+    lst_cheltuieli = get_dat3()
+    chelt_new = creeaza_cheltuiala(2, 10, 2021-11-11, 'Tip nou')
+    updated = update(lst_cheltuieli, chelt_new)
+
+    assert chelt_new in updated
+    assert chelt_new not in lst_cheltuieli
+    assert len(updated) == len(lst_cheltuieli)
+
+
+def test_delete():
+    lst_cheltuieli = get_dat3()
+    nr_chelt_de_sters = 4
+    chelt_de_sters = read(lst_cheltuieli, nr_chelt_de_sters)
+    deleted = delete(lst_cheltuieli, nr_chelt_de_sters)
+
+    assert chelt_de_sters not in deleted
+    assert len(deleted) == len(lst_cheltuieli) - 1
+    assert chelt_de_sters in lst_cheltuieli
+
+
+def test_CRUD():
+    test_create()
+    test_read()
+    test_update()
+    test_delete()

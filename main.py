@@ -9,6 +9,17 @@ Scrieți un program pentru gestionarea unei asociații de proprietari. Vor fi su
 6. Afișarea sumelor lunare pentru fiecare apartament.
 7. Undo.
 """
+from Tests.test_CRUD import test_CRUD
+
 """
 Tips: -un fisier pt fiecare functionalitate
 """
+
+
+def main():
+    pass
+
+
+if __name__ == '__main__':
+    test_CRUD()
+    main()
