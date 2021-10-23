@@ -9,7 +9,8 @@ Scrieți un program pentru gestionarea unei asociații de proprietari. Vor fi su
 6. Afișarea sumelor lunare pentru fiecare apartament.
 7. Undo.
 """
-from Tests.test_CRUD import test_CRUD
+from Tests.test_CRUD import test_CRUD, get_dat3
+from UserInterface.Interfata import interfata
 
 """
 Tips: -un fisier pt fiecare functionalitate
@@ -17,7 +18,8 @@ Tips: -un fisier pt fiecare functionalitate
 
 
 def main():
-    pass
+    lst_cheltuieli = get_dat3()
+    interfata(lst_cheltuieli)
 
 
 if __name__ == '__main__':

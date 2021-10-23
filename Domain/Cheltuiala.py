@@ -1,6 +1,6 @@
 def creeaza_cheltuiala(nr_apartament: int, suma, data, tip_cheltuiala):
     """
-    :param nr_apartament: numarul apartamentului, trebuie sa fie unic
+    :param nr_apartament: numarul apartamentului, NU trebuie sa fie unic
     :param suma: suma cheltuita, nenula
     :param data: data cheltuielii
     :param tip_cheltuiala: tipul cheltuielii
@@ -54,4 +54,4 @@ def get_str(Cheltuiala):
     """
     Getter pt mesajul cu continutul cheltuielii
     """
-    return f'Cheltuiala apartament nr: {get_nr_apartament(Cheltuiala)}, cu suma cheltuita: {get_suma(Cheltuiala)}, in data: {get_data(Cheltuiala)}. Tipul cheltuielii: {get_tip_cheltuiala(Cheltuiala)}.'
+    return f'Cheltuiala apartament nr: {get_nr_apartament(Cheltuiala)} // suma cheltuita: {get_suma(Cheltuiala)} // in data: {get_data(Cheltuiala)} // Tipul cheltuielii: {get_tip_cheltuiala(Cheltuiala)}'

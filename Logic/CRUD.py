@@ -27,7 +27,7 @@ def read(lst_cheltuieli, nr_apartament: int=None):
         if get_nr_apartament(cheltuiala) == nr_apartament:
             cheltuiala_ap_cu_nr = cheltuiala
 
-    if cheltuiala_ap_cu_nr == None:
+    if cheltuiala_ap_cu_nr is None:
         return lst_cheltuieli
     else:
         return cheltuiala_ap_cu_nr
