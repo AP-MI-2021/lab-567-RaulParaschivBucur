@@ -1,3 +1,7 @@
+from Tests.test_CRUD import test_CRUD, get_dat3
+from Tests.test_rest_tasks import test_rest_tasks
+from UserInterface.Interfata import interfata
+
 """
 Scrieți un program pentru gestionarea unei asociații de proprietari. Vor fi suportate operațiile:
 1. Adăugare / ștergere / modificare cheltuială: se efectuează pe bază de număr de apartament.
@@ -9,11 +13,12 @@ Scrieți un program pentru gestionarea unei asociații de proprietari. Vor fi su
 6. Afișarea sumelor lunare pentru fiecare apartament.
 7. Undo.
 """
-from Tests.test_CRUD import test_CRUD, get_dat3
-from UserInterface.Interfata import interfata
 
 """
-Tips: -un fisier pt fiecare functionalitate
+Tips: -un fisier pt fiecare functionalitate  
+"""
+"""
+Precizari: Fiecare cheltuiala are un ID unic pt a putea fi identificata             
 """
 
 
@@ -24,4 +29,5 @@ def main():
 
 if __name__ == '__main__':
     test_CRUD()
+    test_rest_tasks()
     main()

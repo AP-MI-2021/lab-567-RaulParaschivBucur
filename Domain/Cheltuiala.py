@@ -1,4 +1,4 @@
-def creeaza_cheltuiala(nr_apartament: int, suma, data, tip_cheltuiala):
+def creeaza_cheltuiala(nr_apartament: int, id_cheltuiala: int, suma, data, tip_cheltuiala):
     """
     :param nr_apartament: numarul apartamentului, NU trebuie sa fie unic
     :param suma: suma cheltuita, nenula
@@ -8,6 +8,7 @@ def creeaza_cheltuiala(nr_apartament: int, suma, data, tip_cheltuiala):
     """
     return {
         'nr_ap': nr_apartament,
+        'id_chelt': id_cheltuiala,
         'suma': suma,
         'data': data,
         'tip_chelt': tip_cheltuiala
@@ -21,6 +22,15 @@ def get_nr_apartament(Cheltuiala):
     :return: numarul apartamentului aferent cheltuielii date ca parametru
     """
     return Cheltuiala['nr_ap']
+
+
+def get_id(Cheltuiala):
+    """
+    Getter pt id-ul cheltuielii
+    :param Cheltuiala: o cheltuiala
+    :return: id-ul cheltuielii
+    """
+    return Cheltuiala['id_chelt']
 
 
 def get_suma(Cheltuiala):
@@ -54,4 +64,4 @@ def get_str(Cheltuiala):
     """
     Getter pt mesajul cu continutul cheltuielii
     """
-    return f'Cheltuiala apartament nr: {get_nr_apartament(Cheltuiala)} // suma cheltuita: {get_suma(Cheltuiala)} // in data: {get_data(Cheltuiala)} // Tipul cheltuielii: {get_tip_cheltuiala(Cheltuiala)}'
+    return f'Cheltuiala apartament nr: {get_nr_apartament(Cheltuiala)} // ID-ul: {get_id(Cheltuiala)} // suma cheltuita: {get_suma(Cheltuiala)} // in data: {get_data(Cheltuiala)} // Tipul cheltuielii: {get_tip_cheltuiala(Cheltuiala)}'
