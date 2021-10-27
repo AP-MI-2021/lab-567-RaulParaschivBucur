@@ -1,4 +1,4 @@
-from Domain.Cheltuiala import get_str, creeaza_cheltuiala
+from Domain.Cheltuiala2 import get_str, creeaza_cheltuiala
 from Logic.CRUD import create, read, update, delete
 from Logic.rest_tasks import stergere_toate_chelt
 

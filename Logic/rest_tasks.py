@@ -1,5 +1,5 @@
 # 2
-from Domain.Cheltuiala import get_nr_apartament
+from Domain.Cheltuiala2 import get_nr_apartament
 
 
 def stergere_toate_chelt(lst_cheltuieli, nr_apartament: int):

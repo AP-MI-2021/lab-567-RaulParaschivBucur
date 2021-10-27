@@ -7,16 +7,8 @@ def creeaza_cheltuiala(nr_apartament: int, id_cheltuiala: int, suma, data, tip_c
     :param tip_cheltuiala: tipul cheltuielii
     :return: o cheltuiala
     """
-    return {
-        'nr_ap': nr_apartament,
-        'id_chelt': id_cheltuiala,
-        'suma': suma,
-        'data': data,
-        'tip_chelt': tip_cheltuiala
-    }
 
-
-# o lista in care stim ordinea valorilor. Luam valoarea dupa index
+    return [nr_apartament, id_cheltuiala, suma, data, tip_cheltuiala]
 
 
 def get_nr_apartament(Cheltuiala):
@@ -25,7 +17,7 @@ def get_nr_apartament(Cheltuiala):
     :param Cheltuiala: o cheltuiala
     :return: numarul apartamentului aferent cheltuielii date ca parametru
     """
-    return Cheltuiala['nr_ap']
+    return Cheltuiala[0]
 
 
 def get_id(Cheltuiala):
@@ -34,7 +26,7 @@ def get_id(Cheltuiala):
     :param Cheltuiala: o cheltuiala
     :return: id-ul cheltuielii
     """
-    return Cheltuiala['id_chelt']
+    return Cheltuiala[1]
 
 
 def get_suma(Cheltuiala):
@@ -43,7 +35,7 @@ def get_suma(Cheltuiala):
     :param Cheltuiala: o cheltuiala
     :return: suma cheltuita
     """
-    return Cheltuiala['suma']
+    return Cheltuiala[2]
 
 
 def get_data(Cheltuiala):
@@ -52,7 +44,7 @@ def get_data(Cheltuiala):
     :param Cheltuiala: o cheltuiala
     :return: data cheltuielii date ca parametru
     """
-    return Cheltuiala['data']
+    return Cheltuiala[3]
 
 
 def get_tip_cheltuiala(Cheltuiala):
@@ -61,7 +53,7 @@ def get_tip_cheltuiala(Cheltuiala):
     :param Cheltuiala: o cheltuiala
     :return: tipul cheltuielli date ca parametru
     """
-    return Cheltuiala['tip_chelt']
+    return Cheltuiala[4]
 
 
 def get_str(Cheltuiala):

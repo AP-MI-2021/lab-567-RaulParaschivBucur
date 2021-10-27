@@ -1,4 +1,4 @@
-from Domain.Cheltuiala import creeaza_cheltuiala, get_id
+from Domain.Cheltuiala2 import creeaza_cheltuiala, get_id
 from Logic.CRUD import create, read, update, delete
 
 
