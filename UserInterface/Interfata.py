@@ -8,8 +8,9 @@ def show_menu():
     print('1. Adaugare cheltuiala')
     print('2. Stergere cheltuiala')
     print('3. Modifica cheltuiala existenta')
-    print('4. Afiseaza toate cheltuielile')
-    print('5. Sterge toate cheltuielile unui apartament')
+    print('4. Afiseaza o cheltuiala aleasa')
+    print('5. Afiseaza toate cheltuielile')
+    print('6. Sterge toate cheltuielile unui apartament')
     print('x. Iesire')
 
 
@@ -36,9 +37,18 @@ def modificare(lst_cheltuieli):
     return update(lst_cheltuieli, creeaza_cheltuiala(nr_apartament, id, suma, data, tip_cheltuiala))
 
 
-def afisare(lst_cheltuieli):
+def afisare_tot(lst_cheltuieli):
     for cheltuiala in lst_cheltuieli:
         print(get_str(cheltuiala))
+
+
+def afisare_unica(lst_cheltuieli):
+    id = int(input('Alege ID-ul cheltuielii pe care vrei sa o afisezi: '))
+    result = read(lst_cheltuieli, id)
+    if type(result) == list:
+        print('ID-ul ales NU EXISTA')
+    else:
+        print(get_str(result))
 
 
 def sterge_toate_cheltuielile_unui_ap(lst_cheltuieli):
@@ -61,9 +71,12 @@ def interfata(lst_cheltuieli):
             lst_cheltuieli = modificare(lst_cheltuieli)
 
         elif optiune == '4':
-            afisare(lst_cheltuieli)
+            afisare_unica(lst_cheltuieli)
 
         elif optiune == '5':
+            afisare_tot(lst_cheltuieli)
+
+        elif optiune == '6':
             lst_cheltuieli = sterge_toate_cheltuielile_unui_ap(lst_cheltuieli)
 
         elif optiune == 'x':
