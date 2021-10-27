@@ -9,12 +9,13 @@ def show_menu():
     print('2. Stergere cheltuiala')
     print('3. Modifica cheltuiala existenta')
     print('4. Afiseaza o cheltuiala aleasa')
-    print('5. Afiseaza toate cheltuielile')
-    print('6. Sterge toate cheltuielile unui apartament')
+    print('5. Sterge toate cheltuielile unui apartament')
+    print('a. Afiseaza toate cheltuielile')
     print('x. Iesire')
 
 
 def adaugare(lst_cheltuieli):
+    print(' ')
     nr_apartament = int(input('Alege nr apartament: '))
     id = int(input('Alege un ID: '))
     suma = float(input('Scrie suma cheltuita: '))
@@ -24,11 +25,13 @@ def adaugare(lst_cheltuieli):
 
 
 def stergere_o_cheltuiala(lst_cheltuieli):
+    print(' ')
     id_cheltuiala = int(input('Alege ID-ul cheltuielii pe care doresti sa o stergi: '))
     return delete(lst_cheltuieli, id_cheltuiala)
 
 
 def modificare(lst_cheltuieli):
+    print(' ')
     id = int(input('Alege ID-ul cheltuielii pe care vrei sa o modifici: '))
     nr_apartament = int(input('Alege noul nr al apartamentului: '))
     suma = float(input('Scrie noua suma cheltuita: '))
@@ -38,20 +41,23 @@ def modificare(lst_cheltuieli):
 
 
 def afisare_tot(lst_cheltuieli):
+    print(' ')
     for cheltuiala in lst_cheltuieli:
         print(get_str(cheltuiala))
 
 
 def afisare_unica(lst_cheltuieli):
+    print(' ')
     id = int(input('Alege ID-ul cheltuielii pe care vrei sa o afisezi: '))
     result = read(lst_cheltuieli, id)
-    if type(result) == list:
+    if result == lst_cheltuieli:
         print('ID-ul ales NU EXISTA')
     else:
         print(get_str(result))
 
 
 def sterge_toate_cheltuielile_unui_ap(lst_cheltuieli):
+    print(' ')
     nr_apartament = int(input('Alege numarul apartamentului caruia vrei sa ii stergi toate cheltuielile: '))
     return stergere_toate_chelt(lst_cheltuieli, nr_apartament)
 
@@ -73,10 +79,10 @@ def interfata(lst_cheltuieli):
         elif optiune == '4':
             afisare_unica(lst_cheltuieli)
 
-        elif optiune == '5':
+        elif optiune == 'a':
             afisare_tot(lst_cheltuieli)
 
-        elif optiune == '6':
+        elif optiune == '5':
             lst_cheltuieli = sterge_toate_cheltuielile_unui_ap(lst_cheltuieli)
 
         elif optiune == 'x':
