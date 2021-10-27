@@ -4,7 +4,6 @@ from Logic.rest_tasks import stergere_toate_chelt
 from Tests.test_CRUD import get_dat3
 
 
-# necesita modificari
 def test_sterge_toate_chelt():
     lst_cheltuieli = get_dat3()
     nr_ap_chelt_de_sters = 4
