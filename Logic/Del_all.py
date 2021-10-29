@@ -1,4 +1,3 @@
-# 2
 from Domain.Cheltuiala2 import get_nr_apartament
 
 

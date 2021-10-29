@@ -1,6 +1,7 @@
 from Domain.Cheltuiala2 import get_str, creeaza_cheltuiala
 from Logic.CRUD import create, read, update, delete
-from Logic.rest_tasks import stergere_toate_chelt
+from Logic.Del_all import stergere_toate_chelt
+from Logic.Sort_desc import sortare_desc_dupa_suma
 
 
 def show_menu():
@@ -10,6 +11,7 @@ def show_menu():
     print('3. Modifica cheltuiala existenta')
     print('4. Afiseaza o cheltuiala aleasa')
     print('5. Sterge toate cheltuielile unui apartament')
+    print('6. Ordoneaza descrescator cheltuielile dupa suma')
     print('a. Afiseaza toate cheltuielile')
     print('x. Iesire')
 
@@ -56,10 +58,14 @@ def afisare_unica(lst_cheltuieli):
         print(get_str(result))
 
 
-def sterge_toate_cheltuielile_unui_ap(lst_cheltuieli):
+def stergere_toate_cheltuielile_unui_ap(lst_cheltuieli):
     print(' ')
     nr_apartament = int(input('Alege numarul apartamentului caruia vrei sa ii stergi toate cheltuielile: '))
     return stergere_toate_chelt(lst_cheltuieli, nr_apartament)
+
+
+def sortare_descrescator(lst_cheltuieli):
+    return sortare_desc_dupa_suma(lst_cheltuieli)
 
 
 def interfata(lst_cheltuieli):
@@ -83,7 +89,10 @@ def interfata(lst_cheltuieli):
             afisare_tot(lst_cheltuieli)
 
         elif optiune == '5':
-            lst_cheltuieli = sterge_toate_cheltuielile_unui_ap(lst_cheltuieli)
+            lst_cheltuieli = stergere_toate_cheltuielile_unui_ap(lst_cheltuieli)
+
+        elif optiune == '6':
+            lst_cheltuieli = sortare_descrescator(lst_cheltuieli)
 
         elif optiune == 'x':
             break
