@@ -1,4 +1,4 @@
-def creeaza_cheltuiala(nr_apartament: int, id_cheltuiala: int, suma, data, tip_cheltuiala):
+def creeaza_cheltuiala(nr_apartament: int, id_cheltuiala: int, suma: float, data: str, tip_cheltuiala: str):
     """
     :param nr_apartament: numarul apartamentului, NU trebuie sa fie unic
     :param id_cheltuiala: ID-ul cheltuielii, unic

@@ -16,7 +16,7 @@ def create(lst_cheltuieli, nr_apartament: int, id_cheltuiala: int, suma, data, t
     return lst_cheltuieli + [cheltuiala]
 
 
-def read(lst_cheltuieli, id_cheltuiala: int=None):
+def read(lst_cheltuieli, id_cheltuiala: int = None):
     """
     Citeste o cheltuiala  din lista de cheltuieli
     :param lst_cheltuieli: lista de cheltuieli

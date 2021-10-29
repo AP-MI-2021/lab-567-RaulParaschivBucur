@@ -3,14 +3,14 @@ from Logic.CRUD import create, read, update, delete
 
 
 def get_dat3():
-    return [creeaza_cheltuiala(1, 1000, 200, 2021-10-11, 'Intretinere'),
-            creeaza_cheltuiala(2, 1001, 2900, 2021-12-11, 'Canal'),
-            creeaza_cheltuiala(2, 1002, 2900, 2021-12-11, 'Intretinere'),
-            creeaza_cheltuiala(3, 1003, 230, 2020-10-11, 'Canal'),
-            creeaza_cheltuiala(4, 1004, 1670, 2021-10-7, 'Canal'),
-            creeaza_cheltuiala(4, 1005, 670, 2021-10-7, 'Intretinere'),
-            creeaza_cheltuiala(4, 1006, 310, 2021-10-7, 'Alte cheltuieli'),
-            creeaza_cheltuiala(5, 1007, 283, 2021-3-11, 'Gaz')]
+    return [creeaza_cheltuiala(1, 1000, 200.0, '2002', 'Intretinere'),
+            creeaza_cheltuiala(2, 1001, 2900.0, '1999', 'Canal'),
+            creeaza_cheltuiala(2, 1002, 2900.0, '2019', 'Intretinere'),
+            creeaza_cheltuiala(3, 1003, 230.0, '2020', 'Canal'),
+            creeaza_cheltuiala(4, 1004, 1670.0, '2021', 'Canal'),
+            creeaza_cheltuiala(4, 1005, 670.0, '2021', 'Intretinere'),
+            creeaza_cheltuiala(4, 1006, 310.0, '2021', 'Alte cheltuieli'),
+            creeaza_cheltuiala(5, 1007, 283.0, '2021', 'Gaz')]
 
 
 def test_create():
@@ -32,7 +32,7 @@ def test_read():
 
 def test_update():
     lst_cheltuieli = get_dat3()
-    chelt_new = creeaza_cheltuiala(2, 1002, 110, 2021-11-11, 'Tip nou')
+    chelt_new = creeaza_cheltuiala(2, 1002, 110, '2021-11-11', 'Tip nou')
     updated = update(lst_cheltuieli, chelt_new)
 
     assert chelt_new in updated
