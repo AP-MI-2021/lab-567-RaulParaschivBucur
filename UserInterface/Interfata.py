@@ -2,6 +2,7 @@ from Domain.Cheltuiala2 import get_str, creeaza_cheltuiala
 from Logic.Add_value_for_date import adunare_valoare
 from Logic.CRUD import create, read, update, delete
 from Logic.Del_all import stergere_toate_chelt
+from Logic.Max_chelt_each_type import max_suma_chelt_pt_fiecare_tip_chelt, afiseaza_max_chelt
 from Logic.Sort_desc import sortare_desc_dupa_suma
 
 
@@ -14,6 +15,7 @@ def show_menu():
     print('5. Sterge toate cheltuielile unui apartament')
     print('6. Ordoneaza descrescator cheltuielile dupa suma')
     print('7. Aduna o valoare la toate cheltuielile dintr-o dată calendaristica specificata')
+    print('8. Determina cea mai mare cheltuiala pentru fiecare tip de cheltuiala')
     print('a. Afiseaza toate cheltuielile')
     print('x. Iesire')
 
@@ -104,6 +106,11 @@ def adaugare_valoare_pt_chelt_din_data(lst_cheltuieli):
     return lst_cheltuieli
 
 
+def cea_mai_mare_chelt_pt_fiecare_tip(lst_cheltuieli):
+    print(' ')
+    afiseaza_max_chelt(max_suma_chelt_pt_fiecare_tip_chelt(lst_cheltuieli))
+
+
 def interfata(lst_cheltuieli):
     while True:
         show_menu()
@@ -133,10 +140,14 @@ def interfata(lst_cheltuieli):
         elif optiune == '7':
             lst_cheltuieli = adaugare_valoare_pt_chelt_din_data(lst_cheltuieli)
 
+        elif optiune == '8':
+            cea_mai_mare_chelt_pt_fiecare_tip(lst_cheltuieli)
+
         elif optiune == 'x':
             break
 
         else:
             print('Optiunea aleasa este INVALIDA')
 
+        input('\nApasati orice tasta pt a continua')
     return lst_cheltuieli
