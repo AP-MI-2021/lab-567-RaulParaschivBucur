@@ -10,7 +10,7 @@ def show_menu():
     print('1. Adaugare cheltuiala')
     print('2. Stergere cheltuiala')
     print('3. Modifica cheltuiala existenta')
-    print('4. Afiseaza o cheltuiala aleasa')
+    print('4. Afiseaza o cheltuiala la alegere')
     print('5. Sterge toate cheltuielile unui apartament')
     print('6. Ordoneaza descrescator cheltuielile dupa suma')
     print('7. Aduna o valoare la toate cheltuielile dintr-o dată calendaristica specificata')
@@ -70,10 +70,9 @@ def afisare_unica(lst_cheltuieli):
         print(' ')
         id = int(input('Alege ID-ul cheltuielii pe care vrei sa o afisezi: '))
         result = read(lst_cheltuieli, id)
-        if result == lst_cheltuieli:
-            print('ID-ul ales NU EXISTA')
-        else:
-            print(get_str(result))
+        if result is None:
+            raise ValueError(f'Nu exista o cheltuiala cu ID-ul {id} pe care sa o afisam')
+        print(get_str(result))
     except ValueError as ve:
         print('Eroare: ', ve)
 

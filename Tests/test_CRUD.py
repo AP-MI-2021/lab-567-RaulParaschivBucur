@@ -15,11 +15,20 @@ def get_dat3():
 
 def test_create():
     lst_cheltuieli = get_dat3()
-    params = (7, 1020, 5555, 2021-10-11, 'Intretinere')
+    params = (7, 1020, 5555, '2021-10-11', 'Intretinere')
     new_cheltuiala = creeaza_cheltuiala(*params)
     new_lst_cheltuieli = create(lst_cheltuieli, *params)
 
     assert new_cheltuiala in new_lst_cheltuieli
+    assert len(new_lst_cheltuieli) == len(lst_cheltuieli) + 1
+
+    # testam daca se afiseaza exceptie pt id duplicat
+    params2 = (7, 1020, 234, 'Ceva data', 'Ceva')
+    try:
+        _ = create(new_lst_cheltuieli, *params2)
+        assert False
+    except ValueError:
+        assert True
 
 
 def test_read():
