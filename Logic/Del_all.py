@@ -6,10 +6,10 @@ def read(lst_cheltuieli, nr_apartament: int = None):
     """
     Citeste o cheltuiala  din lista de cheltuieli
     :param lst_cheltuieli: lista de cheltuieli
-    :param id_cheltuiala: id-ul cheltuielii pe care vrem sa o citim
-    :return: - cheltuiala apartamentului cu id-ul id_cheltuiala, daca exista
-             - lista cu toate cheltuielile daca id_cheltuiala = None
-             - None daca nu exista o cheltuiala cu id_cheltuiala
+    :param nr_apartament: nr cheltuielii pe care vrem sa o citim
+    :return: - cheltuiala apartamentului cu nr nr_apartament, daca exista
+             - lista cu toate cheltuielile daca nr_apartament = None
+             - None daca nu exista o cheltuiala cu nr_apartament
     """
     if not nr_apartament:
         return lst_cheltuieli

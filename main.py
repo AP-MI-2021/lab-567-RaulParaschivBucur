@@ -12,11 +12,8 @@ Scrieți un program pentru gestionarea unei asociații de proprietari. Vor fi su
 ~5. Ordonarea cheltuielilor descrescător după sumă.  ----> cu: sorted(lista, key=<<dupa ce se sorteaza>> {, Reverse=True daca vrem descrescator})
 6. Afișarea sumelor lunare pentru fiecare apartament.
 7. Undo.
-"""
-"""
-Tips: -un fisier pt fiecare functionalitate  
-"""
-"""
+
+
 Precizari: Fiecare cheltuiala are un ID unic pt a putea fi identificata             
 """
 
@@ -25,8 +22,9 @@ def main():
     lst_cheltuieli = get_dat3()
     interfata(lst_cheltuieli)
 
+# verificare daca data introdusa este corecta
 
-# FA TESTE SI PT EXCEPTII
+
 if __name__ == '__main__':
     test_CRUD()
     test_rest_tasks()

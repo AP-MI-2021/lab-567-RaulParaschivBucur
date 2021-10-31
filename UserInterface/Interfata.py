@@ -3,6 +3,7 @@ from Logic.Add_value_for_date import adunare_valoare
 from Logic.CRUD import create, read, update, delete
 from Logic.Del_all import stergere_toate_chelt
 from Logic.Max_chelt_each_type import max_suma_chelt_pt_fiecare_tip_chelt, afiseaza_max_chelt
+from Logic.Show_monthly_sum import lista_apartamente, lista_sume_lunare
 from Logic.Sort_desc import sortare_desc_dupa_suma
 
 
@@ -16,6 +17,7 @@ def show_menu():
     print('6. Ordoneaza descrescator cheltuielile dupa suma')
     print('7. Aduna o valoare la toate cheltuielile dintr-o dată calendaristica specificata')
     print('8. Determina cea mai mare cheltuiala pentru fiecare tip de cheltuiala')
+    print('9. Afiseaza sumele lunare pt fiecare apartament')
     print('a. Afiseaza toate cheltuielile')
     print('x. Iesire')
 
@@ -111,6 +113,27 @@ def cea_mai_mare_chelt_pt_fiecare_tip(lst_cheltuieli):
     afiseaza_max_chelt(max_suma_chelt_pt_fiecare_tip_chelt(lst_cheltuieli))
 
 
+def afiseaza_sume_lunare(lst_cheltuieli):
+    lst_ap = lista_apartamente(lst_cheltuieli)
+    lst_sume_lunare = lista_sume_lunare(lst_cheltuieli, lst_ap)
+
+    for idx in range(0, len(lst_ap)):
+        print(' ')
+        print(f'Sumele lunare pentru apartamentul {lst_ap[idx]} sunt:')
+        print(f'Ianuarie:   {lst_sume_lunare[idx][0]}')
+        print(f'Februarie:  {lst_sume_lunare[idx][1]}')
+        print(f'Martie:     {lst_sume_lunare[idx][2]}')
+        print(f'Aprilie:    {lst_sume_lunare[idx][3]}')
+        print(f'Mai:        {lst_sume_lunare[idx][4]}')
+        print(f'Iunie:      {lst_sume_lunare[idx][5]}')
+        print(f'Iulie:      {lst_sume_lunare[idx][6]}')
+        print(f'August:     {lst_sume_lunare[idx][7]}')
+        print(f'Septembrie: {lst_sume_lunare[idx][8]}')
+        print(f'Octombrie:  {lst_sume_lunare[idx][9]}')
+        print(f'Noiembrie:  {lst_sume_lunare[idx][10]}')
+        print(f'Decembrie:  {lst_sume_lunare[idx][11]}')
+
+
 def interfata(lst_cheltuieli):
     while True:
         show_menu()
@@ -142,6 +165,9 @@ def interfata(lst_cheltuieli):
 
         elif optiune == '8':
             cea_mai_mare_chelt_pt_fiecare_tip(lst_cheltuieli)
+            
+        elif optiune == '9':
+            afiseaza_sume_lunare(lst_cheltuieli)
 
         elif optiune == 'x':
             break
