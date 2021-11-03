@@ -22,8 +22,8 @@ Precizari: Fiecare cheltuiala are un ID unic pt a putea fi identificata
 
 def main():
     lst_cheltuieli = get_dat3()
-    #interfata(lst_cheltuieli)
-    ui_2(lst_cheltuieli)
+    interfata(lst_cheltuieli)
+    # ui_2(lst_cheltuieli)
 
 # verificare daca data introdusa este corecta
 

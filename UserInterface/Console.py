@@ -3,7 +3,7 @@ add,2,sambata,13;
 
 showall;
 
-add,2,sambata,13;showall,add,4,azi,23;remove,4;showall;
+add,2,sambata,13;showall,add,4,azi,23;remove,4;showall;quit
 """
 from Domain.Cheltuiala2 import creeaza_cheltuiala, get_str
 from Logic.Add_value_for_date import adunare_valoare
