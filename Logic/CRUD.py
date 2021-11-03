@@ -1,7 +1,7 @@
 from Domain.Cheltuiala2 import creeaza_cheltuiala, get_id
 
 
-def create(lst_cheltuieli, nr_apartament: int, id_cheltuiala: int, suma, data, tip_cheltuiala):
+def create(lst_cheltuieli, nr_apartament: int, id_cheltuiala: int, suma: float, data: str, tip_cheltuiala: str):
     """
     Creaza o noua cheltuiala
     :param nr_apartament: numarul apartamentului, NU trebuie sa fie unic
