@@ -1,6 +1,6 @@
 from Tests.test_CRUD import test_CRUD, get_dat3
 from Tests.test_rest_tasks import test_rest_tasks
-from UserInterface.Console import ui_2
+# from UserInterface.Console import ui_2
 from UserInterface.Interfata import interfata
 
 """
@@ -10,9 +10,10 @@ Scrieți un program pentru gestionarea unei asociații de proprietari. Vor fi su
 ~2. Ștergerea tuturor cheltuielilor pentru un apartament dat.
 ~3. Adunarea unei valori la toate cheltuielile dintr-o dată calendaristica citită.
 ~4. Determinarea celei mai mari cheltuieli pentru fiecare tip de cheltuială.
-~5. Ordonarea cheltuielilor descrescător după sumă.  ----> cu: sorted(lista, key=<<dupa ce se sorteaza>> {, Reverse=True daca vrem descrescator})
+~5. Ordonarea cheltuielilor descrescător după sumă.  ----> cu: sorted(lista, key=<<dupa ce se sorteaza>> {, Reverse=True
+ daca vrem descrescator})
 ~6. Afișarea sumelor lunare pentru fiecare apartament.
-7. Undo.
+~7. Undo.
 
 Pe o singura linie mai multe comenzi
 
@@ -24,8 +25,6 @@ def main():
     lst_cheltuieli = get_dat3()
     interfata(lst_cheltuieli)
     # ui_2(lst_cheltuieli)
-
-# verificare daca data introdusa este corecta
 
 
 if __name__ == '__main__':

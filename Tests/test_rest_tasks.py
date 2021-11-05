@@ -8,6 +8,7 @@ from Tests.test_CRUD import get_dat3
 
 # teste pt Del_all
 
+
 def test_sterge_toate_chelt():
     lst_cheltuieli = get_dat3()
     nr_ap_chelt_de_sters = 4
@@ -74,7 +75,8 @@ def test_adunare_valoare():
 
 def test_max_suma_chelt_pt_fiecare_tip_chelt():
     lst_cheltuieli = get_dat3()
-    assert max_suma_chelt_pt_fiecare_tip_chelt(lst_cheltuieli) == [('Intretinere', 2900.0), ('Canal', 2900.0), ('Alte cheltuieli', 310.0), ('Gaz', 283.0)]
+    assert max_suma_chelt_pt_fiecare_tip_chelt(lst_cheltuieli) == [('Intretinere', 2900.0), ('Canal', 2900.0),
+                                                                   ('Alte cheltuieli', 310.0), ('Gaz', 283.0)]
 
 # teste pt Show_monthly_sum
 
@@ -91,7 +93,8 @@ def test_lista_sume_lunare():
     lst_cheltuieli = [creeaza_cheltuiala(4, 1005, 670, '10.10.2021', 'Intretinere'),
                       creeaza_cheltuiala(2, 1001, 2900, '1.1.2021', 'Canal')]
     lst_ap = [4, 2]
-    assert lista_sume_lunare(lst_cheltuieli, lst_ap) == [[0, 0, 0, 0, 0, 0, 0, 0, 0, 670, 0, 0], [2900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+    assert lista_sume_lunare(lst_cheltuieli, lst_ap) == [[0, 0, 0, 0, 0, 0, 0, 0, 0, 670, 0, 0],
+                                                         [2900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
 
 def test_rest_tasks():

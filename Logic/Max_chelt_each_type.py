@@ -25,4 +25,4 @@ def max_suma_chelt_pt_fiecare_tip_chelt(lst_cheltuieli):
 
 def afiseaza_max_chelt(lst):
     for elem in lst:
-        print(f'Tip cheltuiala: {elem[0]}, cea mai mare cheltuiala: {elem[1]}')
+        print(f'Tip cheltuiala: {elem[0]} // Cea mai mare cheltuiala: {elem[1]}')

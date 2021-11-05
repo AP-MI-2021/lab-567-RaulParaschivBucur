@@ -19,7 +19,7 @@ Ian:
 Dec:
 
 """
-from Domain.Cheltuiala2 import get_data, get_nr_apartament, get_suma, creeaza_cheltuiala
+from Domain.Cheltuiala2 import get_data, get_nr_apartament, get_suma
 
 
 def get_month(cheltuiala):

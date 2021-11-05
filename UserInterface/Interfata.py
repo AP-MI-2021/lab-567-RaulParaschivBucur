@@ -18,6 +18,7 @@ def show_menu():
     print('7. Aduna o valoare la toate cheltuielile dintr-o dată calendaristica specificata')
     print('8. Determina cea mai mare cheltuiala pentru fiecare tip de cheltuiala')
     print('9. Afiseaza sumele lunare pt fiecare apartament')
+    print('u. Undo')
     print('a. Afiseaza toate cheltuielile')
     print('x. Iesire')
 
@@ -99,7 +100,7 @@ def sortare_descrescator(lst_cheltuieli):
 def adaugare_valoare_pt_chelt_din_data(lst_cheltuieli):
     try:
         print(' ')
-        data = str(input('Alege data dorita: '))
+        data = str(input('Alege data dorita (de tipul: DD.MM.YY): '))
         valoare = float(input('Alege valoarea pe care vrei sa o aduni: '))
         return adunare_valoare(lst_cheltuieli, valoare, data)
     except ValueError as ve:
@@ -134,19 +135,56 @@ def afiseaza_sume_lunare(lst_cheltuieli):
         print(f'Decembrie:  {lst_sume_lunare[idx][11]}')
 
 
+def handle_new_list(list_versions, current_version, lst_cheltuieli):
+    """
+    Adauga o noua lista in lista de versiuni
+    :param list_versions: lista de versiuni
+    :param current_version: versiunea curenta
+    :param lst_cheltuieli: lista de cheltuieli
+    :return: noua lista de versiuni, si noua versiune curenta
+    """
+    while current_version < len(list_versions) - 1:
+        list_versions.pop()
+    list_versions.append(lst_cheltuieli)
+    current_version += 1
+    return list_versions, current_version
+
+
+def handle_undo(list_versions, current_version):
+    """
+    Readuce lista ''din baza de date'' la un stadiu anterior
+    :param list_versions: lista de versiuni
+    :param current_version: versiuena curenta
+    :return: lista de versiuni din un stadiu anterior, versiunea curenta dupa aducerea la acel stadiu
+    """
+    if current_version < 1:
+        print('Nu se mai poate efectua undo.')
+        return list_versions[current_version], current_version
+
+    current_version -= 1
+    return list_versions[current_version], current_version
+
+
 def interfata(lst_cheltuieli):
+
+    list_versions = [lst_cheltuieli]
+    current_version = 0
+
     while True:
         show_menu()
         optiune = input('Alege o optiune: ')
 
         if optiune == '1':
             lst_cheltuieli = adaugare(lst_cheltuieli)
+            list_versions, current_version = handle_new_list(list_versions, current_version, lst_cheltuieli)
 
         elif optiune == '2':
             lst_cheltuieli = stergere_o_cheltuiala(lst_cheltuieli)
+            list_versions, current_version = handle_new_list(list_versions, current_version, lst_cheltuieli)
 
         elif optiune == '3':
             lst_cheltuieli = modificare(lst_cheltuieli)
+            list_versions, current_version = handle_new_list(list_versions, current_version, lst_cheltuieli)
 
         elif optiune == '4':
             afisare_unica(lst_cheltuieli)
@@ -156,12 +194,15 @@ def interfata(lst_cheltuieli):
 
         elif optiune == '5':
             lst_cheltuieli = stergere_toate_cheltuielile_unui_ap(lst_cheltuieli)
+            list_versions, current_version = handle_new_list(list_versions, current_version, lst_cheltuieli)
 
         elif optiune == '6':
             lst_cheltuieli = sortare_descrescator(lst_cheltuieli)
+            list_versions, current_version = handle_new_list(list_versions, current_version, lst_cheltuieli)
 
         elif optiune == '7':
             lst_cheltuieli = adaugare_valoare_pt_chelt_din_data(lst_cheltuieli)
+            list_versions, current_version = handle_new_list(list_versions, current_version, lst_cheltuieli)
 
         elif optiune == '8':
             cea_mai_mare_chelt_pt_fiecare_tip(lst_cheltuieli)
@@ -169,11 +210,14 @@ def interfata(lst_cheltuieli):
         elif optiune == '9':
             afiseaza_sume_lunare(lst_cheltuieli)
 
+        elif optiune == 'u':
+            lst_cheltuieli, current_version = handle_undo(list_versions, current_version)
+
         elif optiune == 'x':
             break
 
         else:
             print('Optiunea aleasa este INVALIDA')
 
-        input('\nApasati orice tasta pt a continua')
+        # input('\nApasati orice tasta pt a continua')
     return lst_cheltuieli

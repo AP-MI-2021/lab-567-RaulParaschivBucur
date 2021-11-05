@@ -163,4 +163,3 @@ def ui_2(lst_cheltuieli):
 
             elif comanda_split[0] == 'show_monthly_sum':
                 afiseaza_sume_lunare(lst_cheltuieli)
-

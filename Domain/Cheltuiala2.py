@@ -11,53 +11,55 @@ def creeaza_cheltuiala(nr_apartament: int, id_cheltuiala: int, suma: float, data
     return [nr_apartament, id_cheltuiala, suma, data, tip_cheltuiala]
 
 
-def get_nr_apartament(Cheltuiala):
+def get_nr_apartament(cheltuiala):
     """
     Getter pt numarul apartamentului
-    :param Cheltuiala: o cheltuiala
+    :param cheltuiala: o cheltuiala
     :return: numarul apartamentului aferent cheltuielii date ca parametru
     """
-    return Cheltuiala[0]
+    return cheltuiala[0]
 
 
-def get_id(Cheltuiala):
+def get_id(cheltuiala):
     """
     Getter pt id-ul cheltuielii
-    :param Cheltuiala: o cheltuiala
+    :param cheltuiala: o cheltuiala
     :return: id-ul cheltuielii
     """
-    return Cheltuiala[1]
+    return cheltuiala[1]
 
 
-def get_suma(Cheltuiala):
+def get_suma(cheltuiala):
     """
     Getter pt suma cheltuita
-    :param Cheltuiala: o cheltuiala
+    :param cheltuiala: o cheltuiala
     :return: suma cheltuita
     """
-    return Cheltuiala[2]
+    return cheltuiala[2]
 
 
-def get_data(Cheltuiala):
+def get_data(cheltuiala):
     """
     Getter pt data cheltuielii
-    :param Cheltuiala: o cheltuiala
+    :param cheltuiala: o cheltuiala
     :return: data cheltuielii date ca parametru
     """
-    return Cheltuiala[3]
+    return cheltuiala[3]
 
 
-def get_tip_cheltuiala(Cheltuiala):
+def get_tip_cheltuiala(cheltuiala):
     """
     Getter pt tipul cheltuielii
-    :param Cheltuiala: o cheltuiala
+    :param cheltuiala: o cheltuiala
     :return: tipul cheltuielli date ca parametru
     """
-    return Cheltuiala[4]
+    return cheltuiala[4]
 
 
-def get_str(Cheltuiala):
+def get_str(cheltuiala):
     """
     Getter pt mesajul cu continutul cheltuielii
     """
-    return f'Cheltuiala apartament nr: {get_nr_apartament(Cheltuiala)} // ID-ul: {get_id(Cheltuiala)} // suma cheltuita: {get_suma(Cheltuiala)} // in data: {get_data(Cheltuiala)} // Tipul cheltuielii: {get_tip_cheltuiala(Cheltuiala)}'
+    return f'Cheltuiala apartament nr: {get_nr_apartament(cheltuiala)} // ID-ul: {get_id(cheltuiala)} // suma ' \
+           f'cheltuita: {get_suma(cheltuiala)} // in data: {get_data(cheltuiala)} // Tipul cheltu' \
+           f'ielii: {get_tip_cheltuiala(cheltuiala)} '
