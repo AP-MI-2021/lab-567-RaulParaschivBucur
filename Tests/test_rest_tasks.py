@@ -1,5 +1,6 @@
 from Domain.Cheltuiala2 import get_nr_apartament, creeaza_cheltuiala
 from Logic.Add_value_for_date import adunare_valoare
+from Logic.CRUD import create
 from Logic.Del_all import stergere_toate_chelt
 from Logic.Max_chelt_each_type import max_suma_chelt_pt_fiecare_tip_chelt
 from Logic.Show_monthly_sum import lista_apartamente, lista_sume_lunare
@@ -7,6 +8,7 @@ from Logic.Sort_desc import sortare_desc_dupa_suma
 from Tests.test_CRUD import get_dat3
 
 # teste pt Del_all
+from UserInterface.Interfata import handle_new_list, handle_undo, handle_redo
 
 
 def test_sterge_toate_chelt():
@@ -97,6 +99,30 @@ def test_lista_sume_lunare():
                                                          [2900, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
 
+def test_undo_redo():
+    lst_cheltuieli = [creeaza_cheltuiala(4, 1005, 670, '10.10.2021', 'Intretinere'),
+                      creeaza_cheltuiala(2, 1001, 2900, '1.1.2021', 'Canal')]
+
+    list_versions = [lst_cheltuieli]
+    current_version = 0
+
+    lst_cheltuieli_new = create(lst_cheltuieli, 2, 1008, 223, '1.1.2021', 'Gaz')
+    list_versions, current_version = handle_new_list(list_versions, current_version, lst_cheltuieli_new)
+    assert current_version == 1
+    assert list_versions == [lst_cheltuieli, lst_cheltuieli_new]
+
+    lst_cheltuieli, current_version = handle_undo(list_versions, current_version)
+    assert current_version == 0
+    assert lst_cheltuieli == [creeaza_cheltuiala(4, 1005, 670, '10.10.2021', 'Intretinere'),
+                              creeaza_cheltuiala(2, 1001, 2900, '1.1.2021', 'Canal')]
+
+    lst_cheltuieli, current_version = handle_redo(list_versions, current_version)
+    assert current_version == 1
+    assert lst_cheltuieli == [creeaza_cheltuiala(4, 1005, 670, '10.10.2021', 'Intretinere'),
+                              creeaza_cheltuiala(2, 1001, 2900, '1.1.2021', 'Canal'),
+                              [2, 1008, 223, '1.1.2021', 'Gaz']]
+
+
 def test_rest_tasks():
     test_sterge_toate_chelt()
     test_sortare_desc_dupa_suma()
@@ -104,3 +130,4 @@ def test_rest_tasks():
     test_max_suma_chelt_pt_fiecare_tip_chelt()
     test_lista_apartamente()
     test_lista_sume_lunare()
+    test_undo_redo()

@@ -19,6 +19,7 @@ def show_menu():
     print('8. Determina cea mai mare cheltuiala pentru fiecare tip de cheltuiala')
     print('9. Afiseaza sumele lunare pt fiecare apartament')
     print('u. Undo')
+    print('r. Redo')
     print('a. Afiseaza toate cheltuielile')
     print('x. Iesire')
 
@@ -165,6 +166,21 @@ def handle_undo(list_versions, current_version):
     return list_versions[current_version], current_version
 
 
+def handle_redo(list_versions, current_version):
+    """
+    Inverseaza undo
+    :param list_versions: lista de versiuni
+    :param current_version: versiunea curenta
+    :return: lista de versiuni dinaintea utilizarii unui undo, versiunea curenta dinaintea utilizarii undo
+    """
+    if current_version == len(list_versions) - 1:
+        print('Nu se mai poate face redo.')
+        return list_versions[current_version], current_version
+
+    current_version += 1
+    return list_versions[current_version], current_version
+
+
 def interfata(lst_cheltuieli):
 
     list_versions = [lst_cheltuieli]
@@ -212,6 +228,9 @@ def interfata(lst_cheltuieli):
 
         elif optiune == 'u':
             lst_cheltuieli, current_version = handle_undo(list_versions, current_version)
+
+        elif optiune == 'r':
+            lst_cheltuieli, current_version = handle_redo(list_versions, current_version)
 
         elif optiune == 'x':
             break
